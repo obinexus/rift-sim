@@ -1,0 +1,67 @@
+# ==================================================
+# File: rift-gov/.riftrc.2
+# RIFT-2 AST Coordinator Stage Configuration
+# ==================================================
+
+[STAGE_METADATA]
+stage_id=2
+stage_name=AST_COORDINATOR
+sp_alignment=SEMANTIC_ANALYSIS
+governance_version=1.0.0
+
+[OPTIMIZATION_PASSES]
+constant_folding=enabled
+dead_code_elimination=enabled
+common_subexpression_elimination=disabled
+loop_optimization=disabled
+
+[SEMANTIC_ANALYSIS]
+type_checking=basic
+symbol_table=enabled
+scope_analysis=enabled
+reference_resolution=enabled
+
+[TREE_TRANSFORMATIONS]
+operator_strength_reduction=enabled
+algebraic_simplification=enabled
+control_flow_optimization=disabled
+
+[COORDINATION_STRATEGY]
+multi_pass_analysis=true
+dependency_tracking=enabled
+incremental_analysis=false
+
+# ==================================================
+# File: rift-gov/.riftrc.3
+# RIFT-3 Output Stage Configuration
+# ==================================================
+
+[STAGE_METADATA]
+stage_id=3
+stage_name=OUTPUT_GENERATOR
+sp_alignment=CODE_GENERATION
+governance_version=1.0.0
+
+[OUTPUT_FORMATS]
+primary_format=LISP_STYLE_AST
+secondary_format=C_CODE
+debug_format=DOT_GRAPH
+json_export=enabled
+
+[CODE_GENERATION]
+target_language=C
+optimization_level=O1
+debug_symbols=enabled
+inline_functions=false
+
+[FORMATTING_RULES]
+indentation_style=spaces
+indentation_size=2
+line_width=80
+bracket_style=allman
+
+[TEMPLATE_SYSTEM]
+template_directory=templates/
+custom_templates=enabled
+template_caching=true
+macro_expansion=enabled

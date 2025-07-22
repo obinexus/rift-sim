@@ -1,0 +1,35 @@
+
+# ==================================================
+# File: rift-gov/.riftrc.1
+# RIFT-1 Parser Stage Configuration  
+# ==================================================
+
+[STAGE_METADATA]
+stage_id=1
+stage_name=PARSER_BRIDGE
+sp_alignment=SYNTACTIC_ANALYSIS
+governance_version=1.0.0
+
+[GRAMMAR_RULES]
+# Expression grammar with precedence
+EXPRESSION_RULE=expression -> term ((PLUS | MINUS) term)*
+TERM_RULE=term -> factor ((MULTIPLY | DIVIDE) factor)*
+FACTOR_RULE=factor -> IDENTIFIER | NUMBER | LPAREN expression RPAREN
+
+[PRECEDENCE_TABLE]
+MULTIPLY_PRECEDENCE=20
+DIVIDE_PRECEDENCE=20
+PLUS_PRECEDENCE=10
+MINUS_PRECEDENCE=10
+ASSIGNMENT_PRECEDENCE=5
+
+[AST_CONSTRUCTION]
+binary_op_nodes=true
+operator_association=left
+null_node_handling=error
+tree_optimization=basic
+
+[ERROR_RECOVERY]
+panic_mode=true
+error_production=enabled
+synchronization_tokens=SEMICOLON,RBRACE,EOF

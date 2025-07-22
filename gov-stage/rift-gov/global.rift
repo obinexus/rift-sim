@@ -1,0 +1,29 @@
+
+# ==================================================
+# File: rift-gov/global.rift
+# Global Governance Configuration
+# ==================================================
+
+[GLOBAL_METADATA]
+framework_name=OBINexus
+rift_version=1.0.0
+toolchain_path=riftlang.exe -> .so.a -> rift.exe -> gosilang
+
+[PIPELINE_COORDINATION]
+stage_validation=strict
+inter_stage_communication=message_passing
+error_propagation=fail_fast
+performance_monitoring=enabled
+
+[SP_ALIGNMENT_GLOBAL]
+# Strategic Programming alignment across all stages
+governance_enforcement=strict
+intention_validation=enabled
+pattern_consistency=required
+stage_boundary_checks=enabled
+
+[DEVELOPMENT_MODE]
+verbose_logging=true
+stage_timing=enabled
+memory_tracking=enabled
+debug_breakpoints=disabled
